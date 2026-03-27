@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário de Avaliação de Interfaces</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+<body>
+  <header>
+    <h1>Formulário de Avaliação de Interfaces</h1>
+    <h2>Atividade da Matéria Engenharia de Software</h2>
+    <h3>Professora: Isabela Meneses</h3>
+    <h3>Participantes: Aloisio Bomfim / Alisson Januairio / Lucielio de Jesus</h3>
+  </header>
+
+  <div class="container">
+    <div class="progress-container">
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <p id="progress-text">Pergunta 0 de 16 respondida</p>
+    </div>
+
+    <form id="evaluation-form">
+    <div class="form-container">
+    <!-- Site A -->
+    <div class="site-section active" data-step="1">
+      <h2>Avaliação Site Atacadão</h2>
+      <p>Link: https://www.atacadao.com.br/</p>
+      <!-- Usabilidade -->
+      <h3>Usabilidade</h3>
+      <div class="question">
+        <p>É fácil de aprender a usar?</p>
+        <div class="options">
+          <label><input type="radio" name="siteA_usabilidade1" value="1">1-Muito Ruim</label>
+          <label><input type="radio" name="siteA_usabilidade1" value="2">2-Ruim</label>
+          <label><input type="radio" name="siteA_usabilidade1" value="3">3-Médio</label>
+          <label><input type="radio" name="siteA_usabilidade1" value="4">4-Bom</label>
+          <label><input type="radio" name="siteA_usabilidade1" value="5">5-Excelente</label>
+        </div>
+        <textarea placeholder="Observação..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>A padronização dos elementos de tela e a navegação são intuitivas?</p>
+        <div class="options">
+          <label><input type="radio" name="siteA_usabilidade2" value="1">1-Muito Ruim</label>
+          <label><input type="radio" name="siteA_usabilidade2" value="2">2-Ruim</label>
+          <label><input type="radio" name="siteA_usabilidade2" value="3">3-Médio</label>
+          <label><input type="radio" name="siteA_usabilidade2" value="4">4-Bom</label>
+          <label><input type="radio" name="siteA_usabilidade2" value="5">5-Excelente</label>
+        </div>
+        <textarea placeholder="Observação..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>As mensagens instruem o usuário adequadamente?</p>
+        <div class="options">
+          <label><input type="radio" name="siteA_usabilidade3" value="1">1-Muito Ruim</label>
+          <label><input type="radio" name="siteA_usabilidade3" value="2">2-Ruim</label>
+          <label><input type="radio" name="siteA_usabilidade3" value="3">3-Médio</label>
+          <label><input type="radio" name="siteA_usabilidade3" value="4">4-Bom</label>
+          <label><input type="radio" name="siteA_usabilidade3" value="5">5-Excelente</label>
+        </div>
+        <textarea placeholder="Observação..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>Há muitos passos para concluir uma ação?</p>
+        <div class="options">
+          <label><input type="radio" name="siteA_usabilidade4" value="1">1-Muito Ruim</label>
+          <label><input type="radio" name="siteA_usabilidade4" value="2">2-Ruim</label>
+          <label><input type="radio" name="siteA_usabilidade4" value="3">3-Médio</label>
+          <label><input type="radio" name="siteA_usabilidade4" value="4">4-Bom</label>
+          <label><input type="radio" name="siteA_usabilidade4" value="5">5-Excelente</label>
+        </div>
+        <textarea placeholder="Observação..."></textarea>
+      </div>
+
+      <!-- Eficiência -->
+      <h3>Eficiência</h3>
+      <div class="question">
+        <p>O tempo de resposta é razoável?</p>
+        <div class="options">
+          <label><input type="radio" name="siteA_eficiencia1" value="1">1-Muito Ruim</label>
+          <label><input type="radio" name="siteA_eficiencia1" value="2">2-Ruim</label>
+          <label><input type="radio" name="siteA_eficiencia1" value="3">3-Médio</label>
+          <label><input type="radio" name="siteA_eficiencia1" value="4">4-Bom</label>
+          <label><input type="radio" name="siteA_eficiencia1" value="5">5-Excelente</label>
+        </div>
+        <textarea placeholder="Observação..."></textarea>
+      </div>
+
+      <!-- Funcionalidade -->
+      <h3>Funcionalidade</h3>
+      <div class="question">
+        <p>Funciona bem em diferentes aparelhos (PC, celular, tablet)?</p>
+        <div class="options">
+          <label><input type="radio" name="siteA_funcionalidade1" value="1">1-Muito Ruim</label>
+          <label><input type="radio" name="siteA_funcionalidade1" value="2">2-Ruim</label>
+          <label><input type="radio" name="siteA_funcionalidade1" value="3">3-Médio</label>
+          <label><input type="radio" name="siteA_funcionalidade1" value="4">4-Bom</label>
+          <label><input type="radio" name="siteA_funcionalidade1" value="5">5-Excelente</label>
+        </div>
+        <textarea placeholder="Observação..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>Apresentou falha durante o uso?</p>
+        <div class="options">
+          <label><input type="radio" name="siteA_funcionalidade2" value="1">1-Muito Ruim</label>
+          <label><input type="radio" name="siteA_funcionalidade2" value="2">2-Ruim</label>
+          <label><input type="radio" name="siteA_funcionalidade2" value="3">3-Médio</label>
+          <label><input type="radio" name="siteA_funcionalidade2" value="4">4-Bom</label>
+          <label><input type="radio" name="siteA_funcionalidade2" value="5">5-Excelente</label>
+        </div>
+        <textarea placeholder="Observação..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>Há funcionalidades que você sentiu falta?</p>
+        <div class="options">
+          <label><input type="radio" name="siteA_funcionalidade3" value="1">1-Muito Ruim</label>
+          <label><input type="radio" name="siteA_funcionalidade3" value="2">2-Ruim</label>
+          <label><input type="radio" name="siteA_funcionalidade3" value="3">3-Médio</label>
+          <label><input type="radio" name="siteA_funcionalidade3" value="4">4-Bom</label>
+          <label><input type="radio" name="siteA_funcionalidade3" value="5">5-Excelente</label>
+        </div>
+        <textarea placeholder="Observação..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>O que você considera que pode confundir o usuário?</p>
+        <div class="options">
+          <label><input type="radio" name="siteA_funcionalidade4" value="1">1-Muito Ruim</label>
+          <label><input type="radio" name="siteA_funcionalidade4" value="2">2-Ruim</label>
+          <label><input type="radio" name="siteA_funcionalidade4" value="3">3-Médio</label>
+          <label><input type="radio" name="siteA_funcionalidade4" value="4">4-Bom</label>
+          <label><input type="radio" name="siteA_funcionalidade4" value="5">5-Excelente</label>
+        </div>
+        <textarea placeholder="Observação..."></textarea>
+      </div>
+    </div>
+
+    <!-- Site B -->
+    <div class="site-section hidden" data-step="2">
+      <h2>Avaliação Site Assai Atacadista</h2>
+      <p>Link: https://www.assai.com.br/</p>
+      <!-- Usabilidade -->
+      <h3>Usabilidade</h3>
+      <div class="question">
+        <p>É fácil de aprender a usar?</p>
+        <div class="options">
+          <label><input type="radio" name="siteB_usabilidade1" value="1">1-Muito Ruim</label>
+          <label><input type="radio" name="siteB_usabilidade1" value="2">2-Ruim</label>
+          <label><input type="radio" name="siteB_usabilidade1" value="3">3-Médio</label>
+          <label><input type="radio" name="siteB_usabilidade1" value="4">4-Bom</label>
+          <label><input type="radio" name="siteB_usabilidade1" value="5">5-Excelente</label>
+        </div>
+        <textarea placeholder="Observação..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>A padronização dos elementos de tela e a navegação são intuitivas?</p>
+        <div class="options">
+          <label><input type="radio" name="siteB_usabilidade2" value="1">1-Muito Ruim</label>
+          <label><input type="radio" name="siteB_usabilidade2" value="2">2-Ruim</label>
+          <label><input type="radio" name="siteB_usabilidade2" value="3">3-Médio</label>
+          <label><input type="radio" name="siteB_usabilidade2" value="4">4-Bom</label>
+          <label><input type="radio" name="siteB_usabilidade2" value="5">5-Excelente</label>
+        </div>
+        <textarea placeholder="Observação..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>As mensagens instruem o usuário adequadamente?</p>
+        <div class="options">
+          <label><input type="radio" name="siteB_usabilidade3" value="1">1-Muito Ruim</label>
+          <label><input type="radio" name="siteB_usabilidade3" value="2">2-Ruim</label>
+          <label><input type="radio" name="siteB_usabilidade3" value="3">3-Médio</label>
+          <label><input type="radio" name="siteB_usabilidade3" value="4">4-Bom</label>
+          <label><input type="radio" name="siteB_usabilidade3" value="5">5-Excelente</label>
+        </div>
+        <textarea placeholder="Observação..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>Há muitos passos para concluir uma ação?</p>
+        <div class="options">
+          <label><input type="radio" name="siteB_usabilidade4" value="1">1-Muito Ruim</label>
+          <label><input type="radio" name="siteB_usabilidade4" value="2">2-Ruim</label>
+          <label><input type="radio" name="siteB_usabilidade4" value="3">3-Médio</label>
+          <label><input type="radio" name="siteB_usabilidade4" value="4">4-Bom</label>
+          <label><input type="radio" name="siteB_usabilidade4" value="5">5-Excelente</label>
+        </div>
+        <textarea placeholder="Observação..."></textarea>
+      </div>
+
+      <!-- Eficiência -->
+      <h3>Eficiência</h3>
+      <div class="question">
+        <p>O tempo de resposta é razoável?</p>
+        <div class="options">
+          <label><input type="radio" name="siteB_eficiencia1" value="1">1-Muito Ruim</label>
+          <label><input type="radio" name="siteB_eficiencia1" value="2">2-Ruim</label>
+          <label><input type="radio" name="siteB_eficiencia1" value="3">3-Médio</label>
+          <label><input type="radio" name="siteB_eficiencia1" value="4">4-Bom</label>
+          <label><input type="radio" name="siteB_eficiencia1" value="5">5-Excelente</label>
+        </div>
+        <textarea placeholder="Observação..."></textarea>
+      </div>
+
+      <!-- Funcionalidade -->
+      <h3>Funcionalidade</h3>
+      <div class="question">
+        <p>Funciona bem em diferentes aparelhos (PC, celular, tablet)?</p>
+        <div class="options">
+          <label><input type="radio" name="siteB_funcionalidade1" value="1">1-Muito Ruim</label>
+          <label><input type="radio" name="siteB_funcionalidade1" value="2">2-Ruim</label>
+          <label><input type="radio" name="siteB_funcionalidade1" value="3">3-Médio</label>
+          <label><input type="radio" name="siteB_funcionalidade1" value="4">4-Bom</label>
+          <label><input type="radio" name="siteB_funcionalidade1" value="5">5-Excelente</label>
+        </div>
+        <textarea placeholder="Observação..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>Apresentou falha durante o uso?</p>
+        <div class="options">
+          <label><input type="radio" name="siteB_funcionalidade2" value="1">1-Muito Ruim</label>
+          <label><input type="radio" name="siteB_funcionalidade2" value="2">2-Ruim</label>
+          <label><input type="radio" name="siteB_funcionalidade2" value="3">3-Médio</label>
+          <label><input type="radio" name="siteB_funcionalidade2" value="4">4-Bom</label>
+          <label><input type="radio" name="siteB_funcionalidade2" value="5">5-Excelente</label>
+        </div>
+        <textarea placeholder="Observação..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>Há funcionalidades que você sentiu falta?</p>
+        <div class="options">
+          <label><input type="radio" name="siteB_funcionalidade3" value="1">1-Muito Ruim</label>
+          <label><input type="radio" name="siteB_funcionalidade3" value="2">2-Ruim</label>
+          <label><input type="radio" name="siteB_funcionalidade3" value="3">3-Médio</label>
+          <label><input type="radio" name="siteB_funcionalidade3" value="4">4-Bom</label>
+          <label><input type="radio" name="siteB_funcionalidade3" value="5">5-Excelente</label>
+        </div>
+        <textarea placeholder="Observação..."></textarea>
+      </div>
+
+      <div class="question">
+        <p>O que você considera que pode confundir o usuário?</p>
+        <div class="options">
+          <label><input type="radio" name="siteB_funcionalidade4" value="1">1-Muito Ruim</label>
+          <label><input type="radio" name="siteB_funcionalidade4" value="2">2-Ruim</label>
+          <label><input type="radio" name="siteB_funcionalidade4" value="3">3-Médio</label>
+          <label><input type="radio" name="siteB_funcionalidade4" value="4">4-Bom</label>
+          <label><input type="radio" name="siteB_funcionalidade4" value="5">5-Excelente</label>
+        </div>
+        <textarea placeholder="Observação..."></textarea>
+      </div>
+    </div>
+    </div>
+    
+    <!-- Controles de navegação mobile -->
+    <div class="navigation-mobile">
+      <button type="button" class="btn-nav" id="btn-prev" disabled>← Anterior</button>
+      <span class="step-indicator"><span id="current-step">1</span>/2</span>
+      <button type="button" class="btn-nav" id="btn-next">Próximo →</button>
+    </div>
+    
+    <button type="submit" class="btn btn-success visible" id="btn-submit">Enviar Avaliação</button>
+  </form>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>
+   
