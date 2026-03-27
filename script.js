@@ -27,11 +27,11 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     doc.setFontSize(16);
-    doc.text('Formulário de Avaliação de Interfaces', 20, 20);
+    doc.text('Formulário de Avaliação de Interfaces', 105, 20, {align: 'center'});
     doc.setFontSize(12);
-    doc.text('Atividade da Matéria Engenharia de Software', 20, 30);
-    doc.text('Professora: Isabela Meneses', 20, 40);
-    doc.text('Participantes: Aloisio Bomfim / Alisson Januairio / Lucielio de Jesus', 20, 50);
+    doc.text('Atividade da Matéria Engenharia de Software', 105, 30, {align: 'center'});
+    doc.text('Professora: Isabela Meneses', 105, 40, {align: 'center'});
+    doc.text('Participantes: Aloisio Bomfim / Alisson Januairio / Lucielio de Jesus / Vinicius Vilarino', 105, 50, {align: 'center'});
 
     let y = 70;
 
@@ -45,6 +45,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Site A - Atacadão
     doc.setFontSize(14);
     doc.text('Avaliação Site Atacadão', 20, y);
+    y += 10;
+    doc.text('Link: https://www.atacadao.com.br/', 20, y);
     y += 10;
     doc.setFontSize(12);
 
@@ -116,6 +118,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Site B - Assai Atacadista
     doc.setFontSize(14);
     doc.text('Avaliação Site Assai Atacadista', 20, y);
+    y += 10;
+    doc.text('Link: https://www.assai.com.br/', 20, y);
     y += 10;
     doc.setFontSize(12);
 
