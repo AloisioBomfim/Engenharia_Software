@@ -17,6 +17,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
 
+    // Mapeamento dos valores para textos
+    const ratingMap = {
+      '1': 'Muito Ruim',
+      '2': 'Ruim',
+      '3': 'Médio',
+      '4': 'Bom',
+      '5': 'Excelente'
+    };
+
     doc.setFontSize(16);
     doc.text('Formulário de Avaliação de Interfaces', 20, 20);
     doc.setFontSize(12);
@@ -46,7 +55,8 @@ document.addEventListener('DOMContentLoaded', function() {
     usabA.forEach((q, i) => {
       const key = `siteA_usabilidade${i+1}`;
       const val = data[key] || 'Não respondido';
-      doc.text(`${q}: ${val}`, 30, y);
+      const displayVal = ratingMap[val] || val;
+      doc.text(`${q}: ${displayVal}`, 30, y);
       y += 10;
     });
 
@@ -54,7 +64,8 @@ document.addEventListener('DOMContentLoaded', function() {
     doc.text('Eficiência:', 20, y);
     y += 10;
     const efA = data['siteA_eficiencia1'] || 'Não respondido';
-    doc.text(`É eficiente? ${efA}`, 30, y);
+    const displayEfA = ratingMap[efA] || efA;
+    doc.text(`É eficiente? ${displayEfA}`, 30, y);
     y += 10;
 
     // Funcionalidade
@@ -64,7 +75,8 @@ document.addEventListener('DOMContentLoaded', function() {
     funcA.forEach((q, i) => {
       const key = `siteA_funcionalidade${i+1}`;
       const val = data[key] || 'Não respondido';
-      doc.text(`${q}: ${val}`, 30, y);
+      const displayVal = ratingMap[val] || val;
+      doc.text(`${q}: ${displayVal}`, 30, y);
       y += 10;
     });
 
@@ -87,7 +99,8 @@ document.addEventListener('DOMContentLoaded', function() {
     usabB.forEach((q, i) => {
       const key = `siteB_usabilidade${i+1}`;
       const val = data[key] || 'Não respondido';
-      doc.text(`${q}: ${val}`, 30, y);
+      const displayVal = ratingMap[val] || val;
+      doc.text(`${q}: ${displayVal}`, 30, y);
       y += 10;
     });
 
@@ -95,7 +108,8 @@ document.addEventListener('DOMContentLoaded', function() {
     doc.text('Eficiência:', 20, y);
     y += 10;
     const efB = data['siteB_eficiencia1'] || 'Não respondido';
-    doc.text(`É eficiente? ${efB}`, 30, y);
+    const displayEfB = ratingMap[efB] || efB;
+    doc.text(`É eficiente? ${displayEfB}`, 30, y);
     y += 10;
 
     // Funcionalidade
@@ -105,7 +119,8 @@ document.addEventListener('DOMContentLoaded', function() {
     funcB.forEach((q, i) => {
       const key = `siteB_funcionalidade${i+1}`;
       const val = data[key] || 'Não respondido';
-      doc.text(`${q}: ${val}`, 30, y);
+      const displayVal = ratingMap[val] || val;
+      doc.text(`${q}: ${displayVal}`, 30, y);
       y += 10;
     });
 
