@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const btnNext = document.getElementById('btn-next');
   const btnSubmit = document.getElementById('btn-submit');
   const stepIndicator = document.getElementById('current-step');
-  const totalQuestions = 18; // 9 por site (4 usab + 1 ef + 4 func)
+  const totalQuestions = 36; // 18 por site (9 radios + 9 textareas)
   let currentStep = 1;
 
   // Função para gerar PDF
@@ -51,33 +51,60 @@ document.addEventListener('DOMContentLoaded', function() {
     // Usabilidade
     doc.text('Usabilidade:', 20, y);
     y += 10;
-    const usabA = ['É fácil de aprender a usar?', 'É eficiente de usar?', 'É fácil de lembrar como usar?', 'É satisfatório de usar?'];
+    const usabA = ['É fácil de aprender a usar?', 'A padronização dos elementos de tela e a navegação são intuitivas?', 'As mensagens instruem o usuário adequadamente?', 'Há muitos passos para concluir uma ação?'];
     usabA.forEach((q, i) => {
       const key = `siteA_usabilidade${i+1}`;
       const val = data[key] || 'Não respondido';
       const displayVal = ratingMap[val] || val;
       doc.text(`${q}: ${displayVal}`, 30, y);
       y += 10;
+      const obsKey = `${key}_obs`;
+      const obs = data[obsKey];
+      if (obs && obs.trim()) {
+        doc.text(`Observação: ${obs}`, 40, y);
+        y += 10;
+      }
     });
+
+    if (y > 250) {
+      doc.addPage();
+      y = 20;
+    }
 
     // Eficiência
     doc.text('Eficiência:', 20, y);
     y += 10;
     const efA = data['siteA_eficiencia1'] || 'Não respondido';
     const displayEfA = ratingMap[efA] || efA;
-    doc.text(`É eficiente? ${displayEfA}`, 30, y);
+    doc.text(`O tempo de resposta é razoável? ${displayEfA}`, 30, y);
     y += 10;
+    const obsEfA = data['siteA_eficiencia1_obs'];
+    if (obsEfA && obsEfA.trim()) {
+      doc.text(`Observação: ${obsEfA}`, 40, y);
+      y += 10;
+    }
+
+    if (y > 250) {
+      doc.addPage();
+      y = 20;
+    }
 
     // Funcionalidade
     doc.text('Funcionalidade:', 20, y);
     y += 10;
-    const funcA = ['Possui todas as funcionalidades necessárias?', 'As funcionalidades são acessíveis?', 'As funcionalidades são compreensíveis?', 'As funcionalidades são confiáveis?'];
+    const funcA = ['Funciona bem em diferentes aparelhos (PC, celular, tablet)?', 'Apresentou falha durante o uso?', 'Há funcionalidades que você sentiu falta?', 'O que você considera que pode confundir o usuário?'];
     funcA.forEach((q, i) => {
       const key = `siteA_funcionalidade${i+1}`;
       const val = data[key] || 'Não respondido';
       const displayVal = ratingMap[val] || val;
       doc.text(`${q}: ${displayVal}`, 30, y);
       y += 10;
+      const obsKey = `${key}_obs`;
+      const obs = data[obsKey];
+      if (obs && obs.trim()) {
+        doc.text(`Observação: ${obs}`, 40, y);
+        y += 10;
+      }
     });
 
     // Adicionar nova página se necessário
@@ -95,13 +122,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Usabilidade
     doc.text('Usabilidade:', 20, y);
     y += 10;
-    const usabB = ['É fácil de aprender a usar?', 'É eficiente de usar?', 'É fácil de lembrar como usar?', 'É satisfatório de usar?'];
+    const usabB = ['É fácil de aprender a usar?', 'A padronização dos elementos de tela e a navegação são intuitivas?', 'As mensagens instruem o usuário adequadamente?', 'Há muitos passos para concluir uma ação?'];
     usabB.forEach((q, i) => {
       const key = `siteB_usabilidade${i+1}`;
       const val = data[key] || 'Não respondido';
       const displayVal = ratingMap[val] || val;
       doc.text(`${q}: ${displayVal}`, 30, y);
       y += 10;
+      const obsKey = `${key}_obs`;
+      const obs = data[obsKey];
+      if (obs && obs.trim()) {
+        doc.text(`Observação: ${obs}`, 40, y);
+        y += 10;
+      }
     });
 
     // Eficiência
@@ -109,19 +142,30 @@ document.addEventListener('DOMContentLoaded', function() {
     y += 10;
     const efB = data['siteB_eficiencia1'] || 'Não respondido';
     const displayEfB = ratingMap[efB] || efB;
-    doc.text(`É eficiente? ${displayEfB}`, 30, y);
+    doc.text(`O tempo de resposta é razoável? ${displayEfB}`, 30, y);
     y += 10;
+    const obsEfB = data['siteB_eficiencia1_obs'];
+    if (obsEfB && obsEfB.trim()) {
+      doc.text(`Observação: ${obsEfB}`, 40, y);
+      y += 10;
+    }
 
     // Funcionalidade
     doc.text('Funcionalidade:', 20, y);
     y += 10;
-    const funcB = ['Possui todas as funcionalidades necessárias?', 'As funcionalidades são acessíveis?', 'As funcionalidades são compreensíveis?', 'As funcionalidades são confiáveis?'];
+    const funcB = ['Funciona bem em diferentes aparelhos (PC, celular, tablet)?', 'Apresentou falha durante o uso?', 'Há funcionalidades que você sentiu falta?', 'O que você considera que pode confundir o usuário?'];
     funcB.forEach((q, i) => {
       const key = `siteB_funcionalidade${i+1}`;
       const val = data[key] || 'Não respondido';
       const displayVal = ratingMap[val] || val;
       doc.text(`${q}: ${displayVal}`, 30, y);
       y += 10;
+      const obsKey = `${key}_obs`;
+      const obs = data[obsKey];
+      if (obs && obs.trim()) {
+        doc.text(`Observação: ${obs}`, 40, y);
+        y += 10;
+      }
     });
 
     // Salvar o PDF
