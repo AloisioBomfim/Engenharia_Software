@@ -11,7 +11,107 @@ document.addEventListener('DOMContentLoaded', function() {
   const stepIndicator = document.getElementById('current-step');
   const totalQuestions = 18; // 9 por site (4 usab + 1 ef + 4 func)
   let currentStep = 1;
-  const isMobile = window.innerWidth <= 768;
+
+  // Função para gerar PDF
+  function generatePDF() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    doc.setFontSize(16);
+    doc.text('Formulário de Avaliação de Interfaces', 20, 20);
+    doc.setFontSize(12);
+    doc.text('Atividade da Matéria Engenharia de Software', 20, 30);
+    doc.text('Professora: Isabela Meneses', 20, 40);
+    doc.text('Participantes: Aloisio Bomfim / Alisson Januairio / Lucielio de Jesus', 20, 50);
+
+    let y = 70;
+
+    // Coletar dados do formulário
+    const formData = new FormData(form);
+    const data = {};
+    for (let [key, value] of formData.entries()) {
+      data[key] = value;
+    }
+
+    // Site A - Atacadão
+    doc.setFontSize(14);
+    doc.text('Avaliação Site Atacadão', 20, y);
+    y += 10;
+    doc.setFontSize(12);
+
+    // Usabilidade
+    doc.text('Usabilidade:', 20, y);
+    y += 10;
+    const usabA = ['É fácil de aprender a usar?', 'É eficiente de usar?', 'É fácil de lembrar como usar?', 'É satisfatório de usar?'];
+    usabA.forEach((q, i) => {
+      const key = `siteA_usabilidade${i+1}`;
+      const val = data[key] || 'Não respondido';
+      doc.text(`${q}: ${val}`, 30, y);
+      y += 10;
+    });
+
+    // Eficiência
+    doc.text('Eficiência:', 20, y);
+    y += 10;
+    const efA = data['siteA_eficiencia1'] || 'Não respondido';
+    doc.text(`É eficiente? ${efA}`, 30, y);
+    y += 10;
+
+    // Funcionalidade
+    doc.text('Funcionalidade:', 20, y);
+    y += 10;
+    const funcA = ['Possui todas as funcionalidades necessárias?', 'As funcionalidades são acessíveis?', 'As funcionalidades são compreensíveis?', 'As funcionalidades são confiáveis?'];
+    funcA.forEach((q, i) => {
+      const key = `siteA_funcionalidade${i+1}`;
+      const val = data[key] || 'Não respondido';
+      doc.text(`${q}: ${val}`, 30, y);
+      y += 10;
+    });
+
+    // Adicionar nova página se necessário
+    if (y > 250) {
+      doc.addPage();
+      y = 20;
+    }
+
+    // Site B - Assai Atacadista
+    doc.setFontSize(14);
+    doc.text('Avaliação Site Assai Atacadista', 20, y);
+    y += 10;
+    doc.setFontSize(12);
+
+    // Usabilidade
+    doc.text('Usabilidade:', 20, y);
+    y += 10;
+    const usabB = ['É fácil de aprender a usar?', 'É eficiente de usar?', 'É fácil de lembrar como usar?', 'É satisfatório de usar?'];
+    usabB.forEach((q, i) => {
+      const key = `siteB_usabilidade${i+1}`;
+      const val = data[key] || 'Não respondido';
+      doc.text(`${q}: ${val}`, 30, y);
+      y += 10;
+    });
+
+    // Eficiência
+    doc.text('Eficiência:', 20, y);
+    y += 10;
+    const efB = data['siteB_eficiencia1'] || 'Não respondido';
+    doc.text(`É eficiente? ${efB}`, 30, y);
+    y += 10;
+
+    // Funcionalidade
+    doc.text('Funcionalidade:', 20, y);
+    y += 10;
+    const funcB = ['Possui todas as funcionalidades necessárias?', 'As funcionalidades são acessíveis?', 'As funcionalidades são compreensíveis?', 'As funcionalidades são confiáveis?'];
+    funcB.forEach((q, i) => {
+      const key = `siteB_funcionalidade${i+1}`;
+      const val = data[key] || 'Não respondido';
+      doc.text(`${q}: ${val}`, 30, y);
+      y += 10;
+    });
+
+    // Salvar o PDF
+    doc.save('avaliacao_interfaces.pdf');
+  }
 
   // Função para atualizar progresso
   function updateProgress() {
@@ -26,15 +126,6 @@ document.addEventListener('DOMContentLoaded', function() {
     progressBar.style.width = percentage + '%';
     progressBar.setAttribute('aria-valuenow', percentage);
     progressText.textContent = `Pergunta ${totalFilled} de ${totalQuestions} respondida`;
-  }
-
-  // Função para mostrar/ocultar navegação mobile
-  function updateMobileNavigation() {
-    if (!isMobile) return;
-    
-    btnPrev.disabled = currentStep === 1;
-    btnNext.style.display = currentStep === 2 ? 'none' : 'block';
-    btnSubmit.style.display = currentStep === 2 ? 'block' : 'none';
   }
 
   // Função para trocar de step
@@ -53,7 +144,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     currentStep = step;
     stepIndicator.textContent = step;
-    updateMobileNavigation();
+    btnPrev.disabled = currentStep === 1;
+    btnNext.style.display = currentStep === 2 ? 'none' : 'block';
+    btnSubmit.style.display = currentStep === 2 ? 'block' : 'none';
   }
 
   // Event listeners para navegação
@@ -100,25 +193,18 @@ document.addEventListener('DOMContentLoaded', function() {
       e.preventDefault();
       alert('Por favor, responda todas as perguntas obrigatórias antes de enviar.');
     } else {
-      alert('Avaliação enviada com sucesso!');
+      e.preventDefault(); // Prevenir submit padrão
+      generatePDF();
+      alert('Avaliação enviada com sucesso! O PDF foi gerado e baixado.');
     }
   });
 
   // Responsividade ao redimensionar janela
   window.addEventListener('resize', function() {
-    const nowMobile = window.innerWidth <= 768;
-    if (isMobile !== nowMobile) {
-      location.reload();
-    }
+    // Recarregar se necessário, mas por enquanto não
   });
 
   // Inicializar
   updateProgress();
-  if (isMobile) {
-    updateMobileNavigation();
-  } else {
-    // Em desktop, esconde os controles mobile
-    const navMobile = document.querySelector('.navigation-mobile');
-    if (navMobile) navMobile.style.display = 'none';
-  }
+  goToStep(1); // Garantir que comece no step 1
 });
